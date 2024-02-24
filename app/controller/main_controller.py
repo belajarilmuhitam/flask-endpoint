@@ -1,6 +1,6 @@
 import json
 import os
-from app.helpers.response import postRequest
+from app.helpers.response import postRequest, internal_server_error
 
 
 def createData(data):
@@ -29,4 +29,4 @@ def createData(data):
         return postRequest(new_data)
                      
     except Exception as e:
-        return {"status": "error", "message": str(e)}
+        return internal_server_error(str(e))
