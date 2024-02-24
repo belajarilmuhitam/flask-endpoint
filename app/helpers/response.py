@@ -77,5 +77,5 @@ def internal_server_error(error):
             "code": 500,
             "message": "Server error!"
         },
-        "data": None,
+        "data": error,
     }), 500

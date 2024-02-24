@@ -1,6 +1,6 @@
-from flask import jsonify, Blueprint,request
-from app.controller import main_controller
-from app.helpers.response import getRequest, postRequest
+from flask import Blueprint,request
+from app.helpers.response import getRequest, internal_server_error
+from app.controller.main_controller import createData
 
 Main = Blueprint('main', __name__, template_folder='..template')
 
@@ -10,6 +10,12 @@ def index():
 
 @Main.route('/', methods=["POST"])
 def post():
-    input_data = request.get_json()
-    return postRequest(input_data)
+    try:
+        input_data = request.get_json()
 
+        createData_result = createData(input_data)
+
+        return createData_result
+    except Exception as e:
+        
+        return internal_server_error(str(e))
