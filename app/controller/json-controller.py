@@ -13,7 +13,7 @@ def createData(data):
         new_data = {"nim": nim, "nama": nama, "timestamp": timestamp}
 
         current_script_path = os.path.dirname(os.path.abspath(__file__))
-        file_path = os.path.join(current_script_path, '../models/data.json')
+        file_path = os.path.join(current_script_path, '../db/data.json')
 
         if nim is None or nama is None:
             return bad_request()

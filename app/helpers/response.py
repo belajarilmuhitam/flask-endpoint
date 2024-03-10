@@ -3,6 +3,7 @@ from flask import jsonify
 
 sc = Blueprint('success', __name__)
 
+# SUCCESS RESPONSE
 @sc.app_errorhandler(200)
 def getRequest(data):
     return jsonify({
@@ -24,6 +25,8 @@ def postRequest(data):
     }), 201
 
 
+
+# ERROR RESPONSE
 bp = Blueprint("errors", __name__)
 
 @bp.app_errorhandler(400)
