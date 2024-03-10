@@ -1,6 +1,6 @@
 from flask import Blueprint,request
 from app.helpers.response import getRequest, internal_server_error
-from app.controller.main_controller import createData
+from app.controller.jsonController import createData
 
 Main = Blueprint('main', __name__, template_folder='..template')
 
