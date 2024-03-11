@@ -17,6 +17,6 @@ def post():
 
         return createData_result
     except Exception as e:
-        
+
         return internal_server_error(str(e))
     
